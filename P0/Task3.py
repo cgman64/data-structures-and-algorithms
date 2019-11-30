@@ -51,8 +51,9 @@ fixed_re = "\(0\d+\)"
 mobile_re = "$\d{4}"
 tele_re = "$140"
 regex = "^\(080\)|^\(0\d+\)|^[^140]\d{4}|^140"
+
+### Part A
 list_of_codes = []
-# Part A
 for c in calls:
 	sending = c[0]
 	receiving = c[1]
@@ -63,21 +64,25 @@ for c in calls:
 			list_of_codes.append(code.group())
 
 #list_of_codes = list(set(list_of_codes))
-print("The numbers called by people in Bangalore have codes:", list_of_codes)
+print("The numbers called by people in Bangalore have codes:")
+list_of_codes.sort()
+for code in list_of_codes:
+	print(code)
 
-# Part B
+### Part B
+list_of_all_codes = []
 for c in calls:
 	sending = c[0]
 	receiving = c[1]
 	m = re.search(bangalore_re, sending)
 	if m:
 		code = re.search(regex, receiving)
-		list_of_codes.append(code.group())
+		list_of_all_codes.append(code.group())
 
 # calculate percentage of call being to (080)
 numerator = 0
-total = float(len(list_of_codes))
-for code in list_of_codes:
+total = float(len(list_of_all_codes))
+for code in list_of_all_codes:
 	if code == '(080)':
 		numerator += 1
 percentage = round((float(numerator) / total) * 100.0,2)

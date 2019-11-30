@@ -1,0 +1,23 @@
+Task 0
+The run time for this task is O(1). This is because accessing an element in
+an array has O(1) complexity and we perform the same number of accesses to the array no matter the size of the array. In this case we access 6 elements from 2 different arrays.
+
+Task 1
+O(n)
+The run time for this task is O(n). This is because we access two arrays sequentially to append each element to a list. The append operation is only O(1). 2*O(n) == O(n). The 2 is constant and can be considered negligible since n expands linearly.
+
+Task 2
+The for loop starting in line 26 runs in O(n). The for loop starting on line 34 also runs in O(n). The run time
+becomes O(n).
+
+
+Task 3
+There is a for loop on line 56 that runs in O(n), and nested in this loop is a 
+	"if code.group() not in list_of_codes" 
+operation so the run time becomes O(n^2) because it must check every element in the list, so worst case is when this other list is the same size as the first list. There is also a sort operation in line with run time: O(n log n). The run time is O(n^2) + O( n log n) This simplifies to O(n^2).
+
+Task 4
+In line 48 there is a for loop with a nested if statement with:
+Two columns one from calls, the other from texts are accessed with a for loop and a nested if statement: 
+	"if (oc not in in_call) and (oc not in out_in_text)". 
+Worst case scenario this is O(n^2). There is also a sort function applied on the list of numbers for lexicographic ordering. This simplifies to O(n^2) however.
